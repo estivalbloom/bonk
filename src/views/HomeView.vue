@@ -1,18 +1,30 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div id="battlePane">
+    <div id="playerContainer">
+      <img class="characterSprite" :src="playerUrl">
+    </div>
+    <div id="enemyContainer">
+      <img class="characterSprite" :src="enemyUrl">
+    </div>
+  </div>
+  <div id="dataPane">
+    <div id="points"></div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-export default defineComponent({
-  name: 'HomeView',
-  components: {
-    HelloWorld,
-  },
-});
+<script setup lang="ts">
+import playerUrl from '@/assets/characters/player.png'
+import enemyUrl from '@/assets/characters/enemy.png'
 </script>
+
+<style>
+#battlePane {
+  display: flex;
+  justify-content: space-between;
+}
+
+.characterSprite {
+  width: 128px;
+  height: 128px;
+}
+</style>
